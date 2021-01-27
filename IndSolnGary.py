@@ -47,29 +47,36 @@ class Minefield:
 
 class Minesweeper:
     def __init__(self):
-        # self.file_path = "minesweeper_input.txt"
-        self.file_path = input()
         self.field_num = 1
         self.string_representation = ""
         self.build_fields()
 
     def build_fields(self):
-        input_file = open(self.file_path, "r")
-        mine_text = input_file.read().split("\n")
-        input_file.close()
+        mine_text = ""
+        while True:
+            line = input()
+            if line == "0 0":
+                break
+            mine_text += f'{line}\n'
+        mine_text = mine_text.split("\n")
         curr_line = 0
         while True:
             line = mine_text[curr_line]
-            if line == "0 0 ":
+            if line == "":
                 break
             dimensions = line.split(" ")
-            field = Minefield(int(dimensions[0]), int(dimensions[1]), self.field_num)
-            for i in range(1, int(dimensions[0])+1):
-                field.add_row(mine_text[curr_line+i])
-            self.field_num += 1
-            curr_line += int(dimensions[0])+1
-            field.convert()
-            self.string_representation += f'{field}\n'
+            row, col = int(dimensions[0]), int(dimensions[1])
+            if row*col > 0:
+                field = Minefield(row, col, self.field_num)
+                for i in range(1, int(dimensions[0])+1):
+                    field.add_row(mine_text[curr_line+i])
+                self.field_num += 1
+                field.convert()
+                self.string_representation += f'{field}\n'
+                curr_line += int(dimensions[0]) + 1
+            else:
+                curr_line += 1
+                continue
 
     def __str__(self):
         return self.string_representation
