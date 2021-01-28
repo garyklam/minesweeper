@@ -2,11 +2,9 @@
 #Wenqian Li net ID: wli6
 def minesweeper():
     # 1 read all lines from txt.file and store them in a list of string
-
     with open("minesweeper_input.txt") as filename:
         lines = filename.readlines()
     # remove whitespace characters like `\n` at the end of each line
-
     lines = [x.strip() for x in lines]
     # initialize map_row and map_column for the mine map, update map_row and map_column for each mine map
     map_row = 0
@@ -17,7 +15,6 @@ def minesweeper():
     i = 0
     j = 0
     for i in range(len(lines)):
-
         row_str = lines[i]
         # 3 check if this line is number of mine map
         if row_str[0].isdigit():
