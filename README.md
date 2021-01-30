@@ -9,4 +9,4 @@ Time spent:
 Project work
 	Pragati: minessweeper solution.
 	Gary: 
-	Wenqian: minessweeper solution
+	Wenqian: minessweeper output solution
