@@ -4,9 +4,9 @@ Group members: Pragati Dode, Gary Lam, Wenqian Li
 Time spent:
 	Pragati:10hrs
 	Gary:  hrs
-	Wenqian: hrs
+	Wenqian:8 hrs
 
 Project work
 	Pragati: minessweeper solution.
 	Gary: 
-	Wenqian: 
+	Wenqian: minessweeper solution
