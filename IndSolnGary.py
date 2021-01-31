@@ -1,3 +1,6 @@
+# Gary Lam
+# Net ID:Lam583
+
 class Minefield:
     """Holds the text representation of a single minefield based. Converts this to the desired numerical representation
     when convert() is called. Returns the current state of the minefield with __str__."""
