@@ -16,6 +16,7 @@ class InputGenerator:
         self.minefields = ""
         for field in args:
             self._convert_field(field)
+        self.minefields += "0 0"
 
     def insert(self, *args):
         """Allows additional fields to be added without creating another instance of the class."""
@@ -49,8 +50,10 @@ class InputGenerator:
         """Creates or rewrites minesweeper_input.txt with the current set of minefield representations."""
         input_file = open("minesweeper_input.txt", "w")
         input_file.write(self.minefields)
+        input_file.close()
 
 if __name__ == '__main__':
-    test = InputGenerator((3,5), (4,4),(5, 0), (0, 3), (1, 10, 100), (5, 2, 0), (0, 0))
+    # , (4,4),(5, 0), (0, 3), (1, 10, 100), (5, 2, 0), (0, 0))
+    test = InputGenerator((5,5,70))
     print(test.print())
     test.create_input_file()
