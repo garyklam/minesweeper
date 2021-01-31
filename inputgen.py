@@ -46,14 +46,17 @@ class InputGenerator:
         """Returns string representing the minefields, used for checking output before creating the input file."""
         return self.minefields
 
-    def create_input_file(self):
-        """Creates or rewrites minesweeper_input.txt with the current set of minefield representations."""
-        input_file = open("minesweeper_input.txt", "w")
+    def create_input_file(self, file_name=None):
+        """Creates or rewrites a text file with the current set of minefield representations. The file name is
+        determined by the file name arguement and is minesweeper_input.txt by default."""
+        if file_name:
+            input_file = open(file_name, "w")
+        else:
+            input_file = open("minesweeper_input.txt", "w")
         input_file.write(self.minefields)
         input_file.close()
 
 if __name__ == '__main__':
-    # , (4,4),(5, 0), (0, 3), (1, 10, 100), (5, 2, 0), (0, 0))
-    test = InputGenerator((5,5,70))
+    test = InputGenerator((3,5), (4,4), (5, 0), (0, 3), (1, 10, 100), (5, 2, 0))
     print(test.print())
     test.create_input_file()
